@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include ../../common/layout/meta.html %>
+        <title>
+            充值记录
+        </title>
+</head>
+
+<body>
+    <div id="record-input">
+        <input id="js_search_mobile" maxlength="13" type="tel" placeholder="请输入要查询的手机号">
+        <i></i>
+        <span id="js_search">查询</span>
+    </div>
+    <p id="search-tip">仅提供最近3个月以内的查询</p>
+    <div id="js_invalid_mobile" class="common-tip">
+        <img src="images/moren-1@2x.png" alt="">
+    </div>
+    <div id="js_no_record" class="common-tip">
+        <img src="images/moren-2@2x.png" alt="">
+    </div>
+    <ul class="records-list" id="js_records_list">
+
+    </ul>
+    <div id="js_get_more">
+        查看更多
+    </div>
+    <%-include ../../common/layout/footer.html %>
+</body>
+
+</html>

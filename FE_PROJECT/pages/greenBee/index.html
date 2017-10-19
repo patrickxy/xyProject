@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include layout/_head.html %>
+    <title>${data.actiTitle}</title>
+    <script>
+        try {
+            window.CUSTOM_DATA = {
+                page: 'index',
+                aid: '${data.aid}',
+                poster: '${data.poster}',
+                shareCircle: '${data.shareCircle}',
+                shareFriends: '${data.shareFriends}',
+                shareUrl: '${data.shareUrl}',
+                actiImg: '${data.actiImg}',
+                actiTitle: '${data.actiTitle}',
+                fimgUrl: '${data.poster.fimgUrl}',
+                buttonUrl: '${data.poster.buttonUrl}',
+            }
+        } catch (error) {
+            console.error('配置信息错误:', error)
+            window.CUSTOM_DATA = 0;
+        }
+    </script>
+</head>
+<body>
+    <div class="page" <%- env==='prod' && 'style="background-image: url(${data.poster.bimgUrl})"' %> >
+        <a class="btn-share"></a>
+    </div>
+
+    <!-- 分享弹窗 -->
+    <a class="share-mask hide"></a>
+
+
+
+</body>
+</html>

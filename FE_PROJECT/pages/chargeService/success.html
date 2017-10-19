@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include ../../common/layout/meta.html %>
+        <title>
+            流量充值
+        </title>
+</head>
+
+<body>
+    <div id="success-wrap">
+        <p class="status show-success">支付完成</p>
+        <p class="status show-fail">未完成支付</p>
+        <div id="status-img">
+            <img class="show-success" src="images/zhifucg-px@2x.png">
+            <img class="show-fail" src="images/zhifushibai.png">
+        </div>
+        <p class="desc show-success">小新正在为您充值流量，<br>请您收到运营商到账短信后再使用流量</p>
+        <p class="desc show-fail">支付被取消请重新支付</p>
+        <div class="success-action show-success">
+            <a class="js_check">查看订单</a>
+            <a href="index.html">继续充值</a>
+        </div>
+        <div class="success-action show-fail">
+            <a class="js_check">重新支付</a>
+        </div>
+    </div>
+    <%-include ../../common/layout/footer.html %>
+</body>
+
+</html>

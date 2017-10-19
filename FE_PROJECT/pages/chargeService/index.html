@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include ../../common/layout/meta.html %>
+        <title>
+            流量充值
+        </title>
+</head>
+
+<body>
+    <!--顶部输入框-->
+    <div class="input-wrap" id="js_input-wrap">
+        <input type="tel" maxlength="13" id="js_mobile" name="" value="" placeholder="请输入手机号码">
+        <p id="js_mobile_tip"></p>
+        <i></i>
+    </div>
+    <!--默认显示的流量列表-->
+    <div id="default-list">
+        <div class="traffic-list">
+            30M
+        </div>
+        <div class="traffic-list">
+            50M
+        </div>
+        <div class="traffic-list">
+            100M
+        </div>
+        <div class="traffic-list">
+            200M
+        </div>
+        <div class="traffic-list">
+            500M
+        </div>
+        <div class="traffic-list">
+            1000M
+        </div>
+    </div>
+
+    <!--查询的流量列表-->
+    <div id="charge-list">
+    </div>
+
+    <!--可购买的列表-->
+    <ul id="js_discount">
+    </ul>
+    <!--没有可充值包时的提示-->
+    <div id="js_nopack_tip">
+        很抱歉，运营商系统维护中，<br> 暂时没有可充值的流量包
+    </div>
+    <!--底部链接-->
+    <div id="link">
+        <span>
+            <a href="records.html">充值记录</a>
+            </span>
+        <span>
+            <a href="questions.html">常见问题</a>
+            </span>
+    </div>
+    <!--蒙层-->
+    <div id="layer"></div>
+    <!--支付方式-->
+    <div id="js_pay_way">
+        <p>请选择支付方式</p>
+        <ul>
+            <li>
+                <a data-id="">
+                    <div class="pay-left">
+                        <img src="images/zhifubao@2x.png">
+                    </div>
+                    <div class="pay-right">
+                        <div class="pay-name">支付宝<i></i></div>
+                        <div class="pay-desc">数亿用户都在用，安全可托付</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a data-id="">
+                    <div class="pay-left">
+                        <img src="images/weixin@2x.png">
+                    </div>
+                    <div class="pay-right">
+                        <div class="pay-name">微信</div>
+                        <div class="pay-desc">数亿用户的选择，更快更安全</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <%-include ../../common/layout/footer.html %>
+</body>
+
+</html>

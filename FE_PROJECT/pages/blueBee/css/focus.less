@@ -1,0 +1,41 @@
+@import './reset.less';
+@import './popup.less';
+.model-wrap{
+  position: relative;
+}
+#popup{
+  position: relative;
+}
+#wechat-qrcode{
+  position: fixed;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.page{
+  max-width: 10rem;
+  margin: auto;
+  position: relative;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image:url('../images/bg.jpg');
+}
+.popup-header{
+  height: 259px;
+  top: -85px;
+  background: url('../images/focus_title.png') no-repeat center center;
+  background-size: 268px 259px;
+}
+.popup-content{
+  padding-top: 190px;
+  padding-bottom: 135px;
+  background: url('../images/focus_bg.png') no-repeat center bottom ;
+  background-size: 592px 111px;
+}
+
+
+

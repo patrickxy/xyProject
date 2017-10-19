@@ -1,0 +1,358 @@
+@border:#e6e6e6;
+@cc:#cccccc;
+@99:#999999;
+@link:#237edb;
+@33:#333333;
+@danger:#ff0000;
+::-webkit-input-placeholder {
+  color: #999999;
+}
+html{
+  background: #fff;
+}
+body{
+  background-color: #fff;
+  max-width: 10rem;
+  margin: auto;
+  padding-bottom: 20px;
+
+ .input-wrap{
+   width: 750px;
+   border-bottom: solid 1px @border;
+   position: relative;
+   padding-bottom: 50px;
+   input{
+     padding: 40px 30px 0px 30px;
+     font-size: 50px;/*px*/
+     color: @33;
+     width: 600px;
+   }
+   p{
+     position: absolute;
+     bottom:10px;
+     color: @99;
+     font-size: 24px;/*px*/
+     padding-left: 30px;
+     &.error{
+       color: @danger;
+     }
+   }
+   i{
+     position: absolute;
+     width: 47px;
+     height: 47px;
+     right:30px;
+     top:50px;
+     background-image: url(../images/xinhua_my_@2x.png);
+     background-repeat: no-repeat;
+     background-size: cover;
+     &.active{
+       background-image: url(../images/shanchu-py@2x.png);
+     }
+   }
+ }
+ #default-list{
+   width: 690px;
+  margin:40px auto 0 auto;
+  padding-bottom: 40px;
+  font-size: 0;
+    .traffic-list{
+    display: inline-block;
+    width: 218px;
+    border:solid 2px @cc;
+    height: 118px;
+    text-align: center;
+    border-radius: 10px;/*px*/
+    margin-right: 15px;
+    margin-bottom: 20px;
+    font-size: 36px;/*px*/
+    color: @99;
+    em{
+      display: inline-block;
+      width: 100%;
+      padding: 20px 0 0px 0;
+      font-weight: normal;
+      font-size: 36px;/*px*/
+      line-height: 36px;/*px*/
+    }
+    span{
+      font-size: 24px;/*px*/
+      line-height: 24px;/*px*/
+    }
+    &:nth-child(3n){
+      margin-right: 0;
+    }
+  }
+ }
+#charge-list{
+  width: 690px;
+  margin:40px auto 0 auto;
+  padding-bottom: 40px;
+  font-size: 0;
+  display: none;
+  .traffic-list{
+    display: inline-block;
+    width: 218px;
+    border:solid 2px @cc;
+    height: 118px;
+    text-align: center;
+    border-radius: 10px;/*px*/
+    margin-right: 15px;
+    margin-bottom: 20px;
+    color: @99;
+    em{
+      display: inline-block;
+      width: 100%;
+      padding: 20px 0 18px 0;
+      font-weight: normal;
+      font-size: 36px;/*px*/
+      line-height: 36px;/*px*/
+    }
+    span{
+      font-size: 24px;/*px*/
+      line-height: 24px;/*px*/
+    }
+    &:nth-child(3n){
+      margin-right: 0;
+    }
+    &.recommend{
+      background-image: url(../images/tuij-py@2x.png);
+      background-repeat: no-repeat;
+      background-size: 60px 60px;
+      background-position: top right;
+    }
+    &.active{
+      background-color: @link;
+      em{
+        color: #fff!important;
+      }
+      span{
+        color: #fff!important;
+      }
+    }
+  }
+  &.active{
+    .traffic-list{
+      border-color: @link;
+        em{
+          color: @link;
+        }
+        span{
+          color: @link;
+        }
+    }
+  }
+}
+#js_discount{
+  .discount-list{
+    &:first-child{
+      border-top: solid 1px @border;
+    }
+    padding: 30px 40px 30px 26px;
+    border-bottom: solid 1px @border;
+    display: table;
+    .discount-left{
+      display: table-cell;
+      width: 560px;
+      .prize{
+        font-size: 36px;/*px*/
+        color: #000;
+        span{
+          display: inline-block;
+          height: 32px;
+          line-height: 32px;
+          padding: 0 10px 0 10px;
+          margin-left: 25px;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          font-size: 24px;/*px*/
+          vertical-align: middle;
+          color: #fb4b37;
+          position: relative;
+          border:solid 1px #fb4b37;/*px*/
+          border-left:solid 1px transparent;/*px*/
+          border-radius: 2px;
+          &:before{
+            color: rgba(255, 255, 255, 0.9);
+            border-left: solid 1px #fb4b37;/*px*/
+            border-top: solid 1px #fb4b37;/*px*/
+            border-radius: 2px;
+            display: inline-block;
+            width: 22.6px;
+            height:22.6px;
+            position: absolute;
+            top: 2px;
+            left: -11.3px;
+            z-index: 1;
+            content: "";
+            cursor: pointer;
+            -moz-transform: rotateY(1deg) rotateZ(-45deg) scaleX(1) scaleY(1) scaleZ(1);
+            -ms-transform: rotateY(1deg) rotateZ(-45deg) scaleX(1) scaleY(1) scaleZ(1);
+            -o-transform: rotateY(1deg) rotateZ(-45deg) scaleX(1) scaleY(1) scaleZ(1);
+            -webkit-transform: rotateY(1deg) rotateZ(-45deg) scaleX(1) scaleY(1) scaleZ(1);
+            transform: rotateY(1deg) rotateZ(-45deg) scaleX(1) scaleY(1) scaleZ(1);
+          }
+        }
+      }
+      .desc{
+        font-size: 24px;
+        margin-top:10px;
+        color: #999999;
+        i{
+          font-style: normal;
+          display: inline-block;
+          font-size: 24px;
+          padding: 0 3px;
+          background-color: @link;
+          color: #fff;
+          margin-right: 10px;
+          border-radius: 4px;
+        }
+      }
+    }
+    .discount-right{
+      display: table-cell;
+      a{
+        display: inline-block;
+        width: 120px;
+        height: 60px;
+        border:solid 1px @link;
+        color: @link;
+        background-color: #fff;
+        border-radius: 6px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 36px;/*px*/
+        position: relative;
+        top:20px;
+      }
+    }
+  }
+}
+#js_nopack_tip{
+  display: none;
+  margin-top:360px;
+  text-align: center;
+  color: @99;
+}
+#link{
+  width: 750px;
+  position: fixed;
+  bottom: 0;
+  height: 45px;
+  font-size: 0;
+  background-color: #fff;
+  span{
+    width: 50%;
+    height: 30px;
+    display: inline-block;
+    text-align: right;
+    &:first-child{
+       padding-right: 30px;
+      border-right: solid 1px @link;
+    }
+    &:last-child{
+      text-align: left;
+      padding-left: 30px;
+    }
+    a{
+      font-size: 24px;/*px*/
+      color: @link;
+    }
+  }
+}
+
+
+
+}
+#layer{
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:4.4rem;
+  background-color:rgba(0,0,0,0.3);
+  display: none;
+}
+#js_pay_way{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height: 4.4rem;
+  overflow: hidden;
+  background-color:#fff;
+  z-index:2;
+  display: none;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+  p{
+    font-size: 30px;
+    color: @33;
+    padding: 20px 0 20px 26px;
+  }
+  ul {
+    li{
+      padding: 26px;
+      border-top: solid 1px @99;/*px*/
+      a{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        position: relative;
+        .pay-left{
+          width: 70px;
+          height: 70px;
+          border-radius: 5px;
+          overflow: hidden;
+          img{
+            width: 100%;
+          }
+        }
+        .pay-right{
+          margin-left: 30px;
+          .pay-name{
+            font-size: 30px;/*px*/
+            color: @33;
+            i{
+              display: inline-block;
+              width: 54px;
+              height: 25px;
+              background-image: url(../images/tuijian@2x.png);
+              background-repeat: no-repeat;
+              background-size: 100% 100%;
+              vertical-align: baseline;
+              margin-left: 20px;
+            }
+          }
+          .pay-desc{
+            font-size: 20px;/*px*/
+            color: #9c9c9c;
+            margin-top:6px;
+          }
+        }
+      }
+    }
+  }
+}
+#loading{
+  z-index: 999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  background: rgba(255,255,255,0.99);
+  span{
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    font-size: 26px;/*px*/
+    color: #999;
+  }
+}
+

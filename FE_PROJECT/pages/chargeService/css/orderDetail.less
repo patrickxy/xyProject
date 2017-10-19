@@ -1,0 +1,134 @@
+html{
+  background-color:#fafafa;
+}
+#order-detail{
+  background-color: #fff;
+  padding: 35px 25px 30px 25px;
+  margin: 0 auto;
+  li{
+    font-size: 28px;/*px*/
+    color: #999999;
+    margin-bottom: 30px;
+    span{
+      color: #333333;
+      float: right;
+      &.wait{
+        color: #f8b81d;
+      }
+      &.success{
+        color: #3ea1fc
+      }
+      &.close{
+        color: #999999;
+      }
+      &.fail{
+        color: #f52222;
+      }
+    }
+  }
+}
+#confirm-pay{
+  padding: 25px;
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  display: none;
+  p{
+    text-align: center;
+    color: #999999;
+    padding-bottom: 20px;
+  }
+  a{
+    display: block;
+    width: 100%;
+    font-size: 36px;/*px*/
+    padding: 20px 0;
+    text-align: center;
+    background-color: #3ea1fc;
+    border-radius: 5px;
+    color: #fff;
+  }
+}
+#fail-desc{
+  padding-bottom: 60px;
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  text-align: center;
+  font-size: 24px;
+  display: none;
+  color: #999999;
+}
+#layer{
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:4.4rem;
+  background-color:rgba(0,0,0,0.3);
+  display: none;
+}
+#js_pay_way{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height: 4.4rem;
+  overflow: hidden;
+  background-color:#fff;
+  z-index:2;
+  display: none;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+  p{
+    font-size: 30px;
+    color: #333333;
+    padding: 20px 0 20px 26px;
+  }
+  ul {
+    li{
+      padding: 26px;
+      border-top: solid 1px #999999;/*px*/
+      a{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        position: relative;
+        .pay-left{
+          width: 70px;
+          height: 70px;
+          border-radius: 5px;
+          overflow: hidden;
+          img{
+            width: 100%;
+          }
+        }
+        .pay-right{
+          margin-left: 30px;
+          .pay-name{
+            font-size: 30px;/*px*/
+            color: #333333;
+            i{
+              display: inline-block;
+              width: 54px;
+              height: 25px;
+              background-image: url(../images/tuijian@2x.png);
+              background-repeat: no-repeat;
+              background-size: 100% 100%;
+              vertical-align: baseline;
+              margin-left: 20px;
+            }
+          }
+          .pay-desc{
+            font-size: 20px;/*px*/
+            color: #9c9c9c;
+            margin-top:6px;
+          }
+        }
+      }
+    }
+  }
+}

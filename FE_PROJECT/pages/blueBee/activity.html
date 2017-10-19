@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include layout/meta.html %>
+    <title><%- (env != 'dev') ? '${data.actiTitle}' : '点赞一带一路，赢手机流量'%></title>
+    <script>
+        <%if(env != 'dev'){%>
+            window.CUSTOM_DATA = {
+                page: 'activity',
+                aid: '${data.aid}',
+                poster: '${data.poster}',
+                basicData: '${data.basicData}',
+            }
+        <%}else{%>
+            window.CUSTOM_DATA = {
+                page: 'activity',
+                aid: 'jQneMn',
+                poster: '{"button":"0","fimg":"0","title":"将海报分享到朋友圈并获得手机流量","bimg":"522","desc":"分享送流量具有裂变式的广告效果，能达到病毒式传播，让广告迅速占领朋友圈"}',  
+                basicData: '{"code":1,"data":{"isPicValidate":1,"isMessageValidate":1,"endDate":"2017.4.30","bannerImgUrl":"images/3333.jpg","actiLogoImgUrl":"","isPoster":1,"threshold":"","remindFlag":0,"actiModelId":2,"drawWay":0,"isOpenGPS":1,"oldUserDateFlag":"2017-04-20","isLimitPosi":0,"actiTitle":"gg","actiImg":"fileupload/1492760672685.jpg","ruleDesc":"办有流量套餐,符合商家规则","appId":"wx0f5990b7dc23fa76","cosRemind":"0","componentAppId":"wx8a62e7b275d9d03e","bannerImg":"521","thresholdType":"0","traffic":"20-30","orcodeImgUrl":"fileupload/1492691628513.png","shareCircle":1,"jointype":0,"subscribe":1,"stores":"","cosRemindder":"","endDateTime":"23:59:59","custName":"thx2","useStore":0,"startDateTime":"06:00:00","shareUrl":"a/JVR7Nv","shareFriends":1,"startDate":"2017.4.20","lngLatPointsRange":""}}',
+            }
+        <%}%>
+    </script>
+</head>
+<body>
+  <div class="rules hide">
+      <div class='title'>蜂享流量营销赠送说明</div>
+      <p>1.移动数据业务状态未开通或异常（如欠费等）用户无法订购。</p>
+      <p>2.联通停机、欠费、黑名单、身份资料不全、未修改初始密码、当月办理了套餐变更的用户无法订购。
+          智慧沃家共享套餐内手机号暂不支持充值；20元预付费卡套餐用户、上网卡用户无法订购；
+          同时开通了国际漫游及三方通话业务的用户无法订购。</p>
+      <p>3.天翼无线宽带套餐用户、时长计费用户、欠费停机或名下存在欠费产品的用户、业务办理受限用户无法充值。</p>
+      <p>4.移动用户月末两天领取流量将会在次月到账。</p>
+      <p>5.流量领取成功后将有短信通知，到账以运营商网厅查询结果为准，如24小时未收到短信通知，可联系客服解决。</p>
+      <a id='protocol-back'>返回</a>
+  </div>
+
+    <div class="loading">
+        <div class="loading-inner">
+            <img src="images/loading.gif" alt="">
+            <p class="animated fadeInUp">稍等,加载中</p>
+        </div>
+    </div>
+
+    <div class="page j_custom_bg">
+
+      <form class="form">
+        <input type="hidden" id="aid" name="aid">
+        <input type="hidden" id="smskey" name="smskey">
+        <input type="hidden" id="wxid" name="wxid" value=''>
+        <div class="form-item">
+            <div class="input">
+                <input id="phone" type="tel" name="mobile" value="" placeholder="输入手机号码">
+            </div>
+        </div>
+        <!--<div class="form-item">
+            <div class="input">
+                <input id="result" type="text" disabled placeholder="获取中">
+            </div>
+        </div>-->
+
+        <div class="form-item">
+            <div class="input">
+                <input id="captcha" type="text" name="validCodeKey" value="" placeholder="请输入图形验证码">
+            </div>
+        </div>
+
+        <div class="form-item" id="j_captcha_wrap">
+            <div class="captcha-img" id="j_getCaptcha">
+                <div class="reset">刷新</div>
+                <img id="captcha_img" class="img"/>
+            </div>
+        </div>
+
+
+
+        <!--<div class="form-item flex hide" id="j_captcha_wrap">
+            
+                <a class='btn btn-cap ' id="j_getCaptcha">
+                    <div class="flex">
+                        <img id="captcha_img" class="img flex-1"/>
+                        <div class="reset"></div>
+                    </div>
+                </a>
+
+            
+        </div>-->
+        
+        <div class="form-item flex hide" id="j_code_wrap">
+            <div class="input flex-1">
+                <input id="code" type="tel" name="smscode" value="" placeholder="输入手机验证码">
+            </div>
+            <div class="btn-wrap">
+                <a class='btn btn-code' id="j_sendCode">
+                    <span></span>
+                    发送验证码
+                </a>
+            </div>
+        </div>
+
+        <p class="notice">
+            <label for="agree">
+                <input id="agree" checked type="checkbox" value="1">
+                <i></i>
+                <span>已阅读并同意</span>
+            </label>
+            <a class="paper" id="j_showPaper">条款</a>
+
+        </p>
+
+        <a class="btn btn-submit" id="j_submit">
+            <span></span>
+            立即领取
+        </a>
+
+      </form>
+        <div class="footer-notice">
+            <p>1）移动、联通、电信新用户均可参与领取100M免费流量。数量有限，先到先得。</p>
+            <p>
+                2）按活动提示分享活动有机会获赠加码流量包，如当日移动联通包领完，可赠予电信号码好友。每日限参与一次，活动期间最多参与5次。
+            </p>
+        </div>
+
+    </div>
+
+    <div class="model-wrap hide" state='fail'>
+        <div id="popup">
+            <div class="popup-header"></div>
+            <div class="popup-content">
+                <p></p>
+                <div class="btn-close"></div>
+            </div>
+        </div>
+    </div>
+
+
+<%-include layout/footer.html %>
+
+</body>
+</html>

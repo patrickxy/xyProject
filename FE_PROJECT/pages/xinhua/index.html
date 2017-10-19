@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="hotcss" content="design-width=640">
+    <title>看新闻，抽流量，幸运转出来</title>
+    <script>
+        !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+    </script>
+</head>
+<body path="">
+
+    <!--页面主体-->
+    <div class="mainpage">
+        <div id="j_light" class='light'></div>
+        <div id="j_light_weak" class='light light-weak'></div>
+        <div class="rotate-wrap">
+            <div class="rotate" id="j_rotate"></div>
+        </div>
+        <div class="point" id="j_point"></div>
+        <div class="rules">
+            <header>
+                <h1>
+                    <i></i>
+                    <span>活动规则</span>
+                </h1>
+            </header>
+            <ul>
+                <li data-node='text' data-id='dsad4234ds3'>1.看新闻抽大奖，移动手机用户可参与大转盘抽奖领流量活动。</li>
+                <li data-node='text'>2.符合条件的用户有机会获得百兆流量。</li>
+                <li data-node='text'>3.流量领取当月有效，月底清零。</li>
+                <li data-node='text'>4.活动解释权归新华社所有，根据业务需要，我社保留随时变更规则的权利，敬请关注微信公众号通知。</li>
+            </ul>
+        </div>
+    </div>
+    <!--页面主体 end-->
+
+    <!--遮罩层-->
+    <div id="mask"></div>
+    <!--遮罩层 end-->
+
+    <!--弹窗-->
+    <div id="model">
+        <div class="model-header">
+            <div class="hole-wrap">
+                <i class="hole"></i>
+                <i class="hole"></i>
+                <i class="hole"></i>
+                <i class="hole"></i>
+                <i class="hole"></i>
+                <i class="hole"></i>
+                <i class="hole"></i>
+                <i class="hole"></i>
+                <i class="hole"></i>
+            </div>
+        </div>
+        <div class="model-content">
+
+            <div class="model-content__body isgot">
+                <strong class="j_score">0</strong>
+                <p>恭喜你，成功抽取<span class="j_score">0</span>流量</p>
+                <button class="btn btn-submit" type='button' id="j_get">立即领取</button>
+            </div>
+
+            <div class="model-content__body isinput">
+                <form action="" method="post" id="j_form">
+                    <input type="hidden" id="j_aid" name="aid" value='NBRziu'>
+                    <div class="form-row">
+                        <input class="text-input" id="j_phone" type="tel" name="mobile" placeholder="请输入手机号码">
+                    </div>
+                    <div class="form-row clearfix">
+                        <input class="code-input" id="j_code" type="tel" name="validCodeKey" placeholder="请输入验证码">
+                        <img src="/web/system/securitycodeimage/createCode.do" id="j_verifyImg" alt="看不清，换一张">
+                    </div>
+                    <button class="btn btn-submit" type='submit' id="j_send">发送</button>
+                </form>
+            </div>
+
+            <div id="j_fail_model" class="model-content__body isfail">
+                <div class="ico-fail"></div>
+                <p>抱歉，活动参与失败！</p>
+                <button class="btn btn-submit" type='button' id="j_back">返回</button>
+            </div>
+
+        </div>
+    </div>
+    <!--弹窗 end-->
+</body>
+</html>

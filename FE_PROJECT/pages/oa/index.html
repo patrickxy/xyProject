@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include ../../common/layout/oameta.html %>
+        <title>
+            OA
+        </title>
+</head>
+
+<body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left panel content goes here</p>
+        </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+        <div class="content-block">
+            <p>Right panel content goes here</p>
+        </div>
+    </div>
+    <!-- Views, and they are tabs-->
+    <!-- We need to set "toolbar-through" class on it to keep space for our tab bar-->
+    <div class="views tabs toolbar-through">
+        <!-- Your first view, it is also a .tab and should have "active" class to make it visible by default-->
+        <div id="view-1" class="view view-main tab active">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center sliding">审批</div>
+                    <div class="right">
+                        <a href="approval.html" class="item-link"><span>创建审批</span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pages-->
+            <div class="pages navbar-through">
+                <!-- Page, data-page contains page name-->
+                <div data-page="index-1" class="page">
+                    <!-- Scrollable page content-->
+                    <div class="page-content" style="background-color:#fff;">
+                        <div class="content-block">
+                            <!-- Buttons row as tabs controller -->
+                            <div class="buttons-row">
+                                <!-- Link to 1st tab, active -->
+                                <a href="#tab1" class="tab-link active button">我创建的审批</a>
+                                <!-- Link to 2nd tab -->
+                                <a href="#tab2" class="tab-link button"> 我收到的审批</a>
+                                <!-- Link to 3rd tab -->
+                                <a href="#tab3" class="tab-link button">我创建的抄送</a>
+                            </div>
+                        </div>
+                        <!-- Tabs, tabs wrapper -->
+                        <div class="tabs">
+                            <!-- Tab 1, active by default -->
+                            <div id="tab1" class="tab active">
+                                <div class="content-block">
+                                    <div class="list-block media-list">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="item-link item-content">
+                                                    <div class="item-media"><img src="http://lorempixel.com/68/68/people/6/" width="40" height="40"></div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-title">Yellow Submarine</div>
+                                                            <div class="item-after">09:41</div>
+                                                        </div>
+                                                        <div class="item-subtitle">Beatles</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab 2 -->
+                            <div id="tab2" class="tab">
+                                <div class="content-block">
+                                    <div class="list-block media-list">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="item-link item-content">
+                                                    <div class="item-media"><img src="http://lorempixel.com/68/68/people/6/" width="40" height="40"></div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-title">Yellow Submarine</div>
+                                                            <div class="item-after">09:41</div>
+                                                        </div>
+                                                        <div class="item-subtitle">Beatles</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tab 3 -->
+                            <div id="tab3" class="tab">
+                                <div class="content-block">
+                                    <div class="list-block media-list">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="item-link item-content">
+                                                    <div class="item-media"><img src="http://lorempixel.com/68/68/people/6/" width="40" height="40"></div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-title">Yellow Submarine</div>
+                                                            <div class="item-after">09:41</div>
+                                                        </div>
+                                                        <div class="item-subtitle">Beatles</div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Second view (for second wrap)-->
+        <div id="view-2" class="view tab">
+            <!-- We can make with view with navigation, let's add Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center sliding">通讯录</div>
+                </div>
+            </div>
+            <div class="pages navbar-through">
+                <div data-page="index-2" class="page">
+                    <!-- Search Bar -->
+                    <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                        <div class="searchbar-input">
+                            <input type="search" placeholder="搜索用户">
+                            <a href="#" class="searchbar-clear"></a>
+                        </div>
+                        <a href="#" class="searchbar-cancel">Cancel</a>
+                    </form>
+
+                    <!-- Search Bar overlay-->
+                    <div class="searchbar-overlay"></div>
+                    <div class="page-content">
+                        <div class="content-block searchbar-not-found">
+                            Nothing found
+                        </div>
+
+                        <div class="list-block media-list list-block-search searchbar-found">
+                            <ul>
+                                <li>
+                                    <a class="item-content item-link external" href="stuff.html">
+                                        <div class="item-media"><img src="http://lorempixel.com/68/68/people/6/" width="40" height="40"></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">张三</div>
+                                                <div class="item-after">
+                                                    <i class="f7-icons">phone-fill</i>
+                                                </div>
+                                            </div>
+                                            <div class="item-subtitle">研发部</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="item-content item-link external" href="stuff.html">
+                                        <div class="item-media"><img src="http://lorempixel.com/68/68/people/6/" width="40" height="40"></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">李四</div>
+                                                <div class="item-after">
+                                                    <i class="f7-icons">phone-fill</i>
+                                                </div>
+                                            </div>
+                                            <div class="item-subtitle">人事部</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="item-content item-link external" href="stuff.html">
+                                        <div class="item-media"><img src="http://lorempixel.com/68/68/people/6/" width="40" height="40"></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">王五</div>
+                                                <div class="item-after">
+                                                    <i class="f7-icons">phone-fill</i>
+                                                </div>
+                                            </div>
+                                            <div class="item-subtitle">小卖部</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="view-3" class="view tab">
+            <!-- We can make with view with navigation, let's add Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="center sliding">我</div>
+                </div>
+            </div>
+            <div class="pages navbar-through">
+                <div data-page="index-3" class="page">
+                    <div class="page-content">
+                        <div class="content-block">
+                            <div class="list-block media-list">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"><img src="http://lorempixel.com/68/68/people/6/" width="80" height="80"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">我</div>
+                                                </div>
+                                                <div class="item-subtitle">研发部</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="myFiles.html" class="item-link item-content">
+                                            <div class="item-media"><i class="f7-icons size-30">document-fill</i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">我的文件</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="item-link item-content">
+                                            <div class="item-media"><i class="f7-icons size-30">help-fill</i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">帮助中心</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="settings.html" class="item-link item-content">
+                                            <div class="item-media"><i class="f7-icons size-30">settings-fill</i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">设置</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Tabbar-->
+        <div class="toolbar tabbar tabbar-labels">
+            <div class="toolbar-inner">
+                <a href="#view-1" class="tab-link active">
+                    <i class="f7-icons size-30">info</i>
+                    <!--<i class="icon tabbar-demo-icon-1"></i>-->
+                    <span class="tabbar-label">审批</span></a>
+                <a href="#view-2" class="tab-link">
+                    <i class="f7-icons size-30">persons</i>
+                    <!--<i class="icon tabbar-demo-icon-2"></i>-->
+                    <span class="tabbar-label">通讯录</span></a>
+                <a href="#view-3" class="tab-link">
+                    <i class="f7-icons size-30">person</i>
+                    <!--<i class="icon tabbar-demo-icon-3"></i>-->
+                    <span class="tabbar-label">我</span></a>
+            </div>
+        </div>
+    </div>
+
+    <%-include ../../common/layout/oafooter.html %>
+</body>
+
+</html>

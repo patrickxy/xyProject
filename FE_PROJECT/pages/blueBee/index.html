@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include layout/meta.html %>
+    <title><%- (env != 'dev') ? '${data.actiTitle}' : '点赞一带一路，赢手机流量'%></title>
+    <script>
+        <%if(env != 'dev'){%>
+            window.CUSTOM_DATA = {
+                page: 'index',
+                aid: '${data.aid}',
+                poster: '${data.poster}',
+                shareCircle: '${data.shareCircle}',
+                shareFriends: '${data.shareFriends}',
+                shareUrl: '${data.shareUrl}',
+                actiImg: '${data.actiImg}',
+                actiTitle: '${data.actiTitle}',
+                fimgUrl: '${data.poster.fimgUrl}',
+                buttonUrl: '${data.poster.buttonUrl}',
+                basicData: '${data.basicData}',
+            }
+        <%}else{%>
+            window.CUSTOM_DATA = {
+                page: 'index',
+                aid: 'Ujuimi',
+                poster: '{"button":"0","fimg":"0","title":"将海报分享到朋友圈并获得手机流量","bimg":"522","desc":"分享送流量具有裂变式的广告效果，能达到病毒式传播，让广告迅速占领朋友圈"}',  
+                shareCircle: '1',
+                shareFriends: '1',
+                shareUrl: '',
+                actiImg: '',
+                actiTitle: '',
+                fimgUrl: '',
+                buttonUrl: '',
+            }
+        <%}%>
+    </script>
+</head>
+<body>
+    
+    <div class="page" <%- env!='dev' && 'style="background-image: url(${data.poster.bimgUrl})"' %> >
+        <div class="notice">
+            <a class="btn-share"></a>
+            <p>1）移动、联通、电信新用户均可参与领取100M免费流量。数量有限，先到先得。</p>
+            <p>
+                2）按活动提示分享活动有机会获赠加码流量包，如当日移动联通包领完，可赠予电信号码好友。每日限参与一次，活动期间最多参与5次。
+            </p>
+        </div>
+    </div>
+    
+    <div class="loading hide">
+        <div class="loading-inner">
+            <img src="images/loading.gif" alt="">
+            <p class="animated fadeInUp">点赞处理中，请稍等</p>
+        </div>
+    </div>
+
+    <!-- 分享弹窗 -->
+    <a class="share-mask hide">
+        <span class="share-ico"></span>
+    </a>
+
+
+    <%-include layout/footer.html %>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include layout/meta.html %>
+    <title>关注</title>
+    <script>
+        <%if(env != 'dev'){%>
+            window.CUSTOM_DATA = {
+                page: 'focus',
+                aid: '${data.aid}',
+                basicData: '${data.basicData}',
+            }
+        <%}else{%>
+            window.CUSTOM_DATA = {
+                page: 'focus',
+                aid: 'Ujuimi',
+            }
+        <%}%>
+    </script>
+</head>
+<body>
+
+    <img src="./images/qrcode.png" alt="qrcode" id='wechat-qrcode'>
+
+    <div class="page j_custom" <%- env!='dev' && 'style="background-image: url(${data.poster.bimgUrl})"' %> >
+
+      <div class="model-wrap">
+          <div id="popup">
+              <div class="popup-header"></div>
+              <div class="popup-content">
+                <p>扫码关注新华社微信公众号，可参与</p>
+                <p>“点赞一带一路 送手机流量”活动</p>
+              </div>
+          </div>
+      </div>
+      
+    </div>
+<%-include layout/footer.html %>
+</body>
+</html>

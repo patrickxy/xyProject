@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include ../../common/layout/meta.html %>
+        <title>
+            流量充值
+        </title>
+</head>
+
+<body>
+    <div id="wx-wrap">
+        <p class="status">请在微信内完成支付</p>
+        <div id="status-img">
+            <img src="images/zhifuzhong.png">
+        </div>
+        <div class="success-action">
+            <a id="js_refresh">付款已完成</a>
+        </div>
+        <p class="wait-more">无法打开微信支付？<a id="js_wx_try" href="">点此尝试</a></p>
+        <p class="wait-more"><a id="js_other_pay">使用其它支付方式>></a></p>
+    </div>
+    <%-include ../../common/layout/footer.html %>
+</body>
+
+</html>

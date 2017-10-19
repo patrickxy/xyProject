@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include ../../common/layout/meta.html %>
+        <title>
+            订单详情
+        </title>
+</head>
+
+<body>
+    <ul id="order-detail">
+        <li>充值号码<span id="mobile"></span></li>
+        <li>归属地<span id="space"></span></li>
+        <li>运营商<span id="operator"></span></li>
+        <li>流量类型<span id="trafficType"></span></li>
+        <li>套餐内容<span id="content"></span></li>
+        <div class="line" style="height:20px;border-top:solid 1px #e6e6e6;"></div>
+        <li>订单号<span id="orderNumber"></span></li>
+        <li>订单状态<span id="status"></span></li>
+        <li>订单时间<span id="time"></span></li>
+        <li>订单金额<span id="price"></span></li>
+    </ul>
+    <div id="confirm-pay">
+        <p>请在支付前确认一下手机号码和金额哦~</p>
+        <a>确认充值</a>
+    </div>
+    <div id="fail-desc">
+        交易失败时，我们会立即为您办理退款，<br> 退款会按原支付路径退还给您
+    </div>
+    <div id="layer"></div>
+    <div id="js_pay_way">
+        <p>请选择支付方式</p>
+        <ul>
+            <li>
+                <a data-id="">
+                    <div class="pay-left">
+                        <img src="images/zhifubao@2x.png">
+                    </div>
+                    <div class="pay-right">
+                        <div class="pay-name">支付宝<i></i></div>
+                        <div class="pay-desc">数亿用户都在用，安全可托付</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a data-id="">
+                    <div class="pay-left">
+                        <img src="images/weixin@2x.png">
+                    </div>
+                    <div class="pay-right">
+                        <div class="pay-name">微信</div>
+                        <div class="pay-desc">数亿用户的选择，更快更安全</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <%-include ../../common/layout/footer.html %>
+</body>
+
+</html>

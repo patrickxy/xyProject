@@ -1,0 +1,233 @@
+@import 'common.less';
+@import 'animated.less';
+
+.mainpage{
+    
+    position: relative;
+    width: 640px;
+    height: 1008px;
+    background-image: url('../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    &>div{
+        position: absolute;
+        background-repeat: no-repeat;
+    } 
+    .rotate-wrap{
+        left: 157px;
+        top:270px;
+        width: 340px;
+        height: 340px;
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        overflow: hidden;
+    }
+    .rotate{
+        width: 340px;
+        height: 340px;
+        background-image: url('../images/bg_cr.png');
+        background-size: 100% 100%;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    .move{
+        will-change: transform;
+        -webkit-transition: transform 5s ease-in-out ;
+        transition: transform  5s ease-in-out ;
+    }
+    .point{
+        left: 260px;
+        top:335px;
+        width: 133px;
+        height: 173px;
+        background-size: 100% 100%;
+        background-image: url('../images/point.png');
+    }
+    .rules{
+        left: 113px;
+        top:675px;
+        width: 420px;
+        height: 290px;
+        header{
+            position: relative;
+            height: 72px;
+            text-align: center;
+        }
+        h1{
+            position: relative;
+            width: 190px;
+            display: inline-block;
+            i{
+                position: absolute;
+                width: 190px;
+                top:0;
+                left:0;
+                height: 1px;
+                box-shadow: 0 0 2px @red;
+            }
+            span{
+                position: absolute;
+                top:-15px;
+                left: 40px;
+                width: 104px;
+                font-size: 22px;
+                color: @red;
+                font-weight: bold;
+                background: #fdfdd4;
+            }
+        }
+        ul{
+            font-size: 18px;
+            color: @red;
+            padding: 0 10px;
+        }
+        li{
+            list-style: none;
+            line-height: 26px;
+        }
+    }
+}
+
+#mask{
+    display: none;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    bottom:0;
+    right: 0;
+    background: rgba(0,0,0,.3);
+}
+#model{
+    display: none;
+    z-index: 3;
+    position: absolute;
+    width: 500px;
+    height: 380px;
+    top: 400px;
+    left:70px;
+    background-color: #fff;
+    border-radius: 20px;
+    
+    &[state="got"]{.isgot{display: block;}}
+    &[state="input"]{.isinput{display: block;}}
+    &[state="fail"]{.isfail{display: block;}}
+    .model-header{
+        position: relative;
+        height: 54px;
+        background: @red;
+        border-bottom: 6px solid #fde6d4;
+        text-align: center;
+        border-radius: 18px 18px 0 0;
+    }
+    .hole-wrap{
+        position: absolute;
+        width: 100%;
+        left:0;
+        top: -16px;
+    }
+    .hole{
+        display: inline-block;
+        height: 33px;
+        width: 25px;
+        background-repeat: no-repeat;
+        background-size: 22px 33px;
+        background-position: center center;
+        background-image: url('../images/hole.png'); 
+    }
+    .model-content{
+        position: relative;
+        height: 320px;
+        text-align: center;
+    }
+    .model-content__body{display: none;}
+    p{
+        font-size: 22px;
+        color: @red;
+    }
+    .btn-submit{
+        position: absolute;
+        left: 130px;
+        bottom: 45px;
+        width: 240px;
+    }
+}
+.model-content__body.isgot{
+    strong{
+        display: block;
+        padding-top: 30px;
+        font-size: 70px;
+        color: @red;
+    }
+}
+.model-content__body.isfail{
+    .ico-fail{
+        height: 120px;
+        background-repeat: no-repeat;
+        background-size: 98px 89px;
+        background-position: center center;
+        background-image: url('../images/fail.png');
+    }
+}
+body.disabled .model-content__body.isfail{
+    .btn{display: none;}
+    p{font-size: 30px;}
+    .ico-fail{margin: 20px;}
+}
+.model-content__body.isinput{
+    padding-top: 10px;
+    .form-row{
+        margin: 10px auto;
+        width: 400px;
+        height: 72px;
+        border: 1px solid @red;
+        color: @red;
+        font-size: 22px;
+    }
+    input{
+        padding-left: 20px;
+        height: 70px;
+        vertical-align: middle;
+        line-height: normal;
+        font-size: 22px;
+    }
+    .text-input{
+        float: left;
+        width: 100%;
+    }
+    .code-input{
+        float: left;
+        width: 260px;
+    }
+    .btn-getcode{
+        float: right;
+        width: 130px;
+        border-radius: 0;
+        font-size: 20px;
+    }
+    img{
+        float: right;
+        width: 130px;
+        height: 70px;
+    }
+}
+
+
+// 跑马灯
+.light{
+    background-repeat: no-repeat;
+    background-size: 381px 381px;
+    background-position: 9px 10px;
+    background-image: url('../images/light.png');
+    width: 395px;
+    height: 395px;
+    left: 125px;
+    top: 240px;
+}
+.light-weak{
+    display: none;
+    -webkit-transform: rotate(80deg);
+    transform: rotate(80deg);
+}

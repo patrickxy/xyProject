@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include layout/meta.html %>
+    <title>友情提示</title>
+    <script>
+        <%if(env != 'dev'){%>
+            window.CUSTOM_DATA = {
+                page: 'error',
+                basicData: '${data.basicData}',
+            }
+        <%}else{%>
+            window.CUSTOM_DATA = {
+                page: 'error',
+                basicData: '{"code":1,"data":{"isMessageValidate":1,"endDate":"2017.4.30","bannerImgUrl":"fileupload/1492760676332.jpg","actiLogoImgUrl":"","isPoster":1,"isPicValidate":1,"threshold":"","remindFlag":0,"actiModelId":2,"drawWay":0,"isOpenGPS":1,"oldUserDateFlag":"2017-04-20","isLimitPosi":0,"actiTitle":"gg","actiImg":"fileupload/1492760672685.jpg","ruleDesc":"办有流量套餐,符合商家规则","appId":"wx0f5990b7dc23fa76","cosRemind":"0","componentAppId":"wx8a62e7b275d9d03e","bannerImg":"521","thresholdType":"0","traffic":"20-30","orcodeImgUrl":"fileupload/1492691628513.png","shareCircle":1,"jointype":0,"subscribe":1,"stores":"","cosRemindder":"","endDateTime":"23:59:59","custName":"thx2","useStore":0,"startDateTime":"06:00:00","shareUrl":"a/JVR7Nv","shareFriends":1,"startDate":"2017.4.20","lngLatPointsRange":""}}',
+            }
+        <%}%>
+    </script>
+</head>
+<body>
+  <div class="page j_custom_bg">
+  
+    <div class="model-wrap" state='fail'>
+        <div id="popup">
+            <div class="popup-header"></div>
+            <div class="popup-content">
+                <p id="error"></p>
+                <div class="btn-close" id='btn-close'></div>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+
+
+  <%-include layout/footer.html %>
+</body>
+</html>

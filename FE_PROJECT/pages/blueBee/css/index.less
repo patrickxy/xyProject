@@ -1,0 +1,114 @@
+@import './reset.less';
+html{
+  background: #012c95;
+}
+.page{
+  max-width: 10rem;
+  margin: auto;
+  position: relative;
+  height: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-image:url('../images/3333.jpg');
+}
+.notice{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 20px 35px;
+  font-size: 24px;/*px*/
+  color: #eee;
+  background: rgba(0,0,0,0.3);
+}
+.btn-share{
+  margin: 10px auto;
+  display: block;
+  width: 248px;
+  height: 69px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image:url('../images/btn.png');
+}
+
+// 分享蒙层
+.share-mask{
+  z-index: 2;
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right: 0;
+  background: rgba(0,0,0,.5);
+  .share-ico{
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    width: 292px;
+    height: 114px;
+    background: url('../images/share1.png') no-repeat center center;
+    background-size: 292px 109px;
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+body>.loading{
+  z-index: 999;
+  background: rgba(0,0,0,.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  bottom:0;
+  left:0; 
+  opacity: 1;
+  transition: opacity 3s;
+  &.fadeOut{
+    opacity: 0.2;
+  }
+}
+.loading-inner{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width:100%;
+  transform: translate3d(0,-50%,0);
+  font-size: 24px;/*px*/
+  color: #fff;
+  text-align: center;
+  img{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+

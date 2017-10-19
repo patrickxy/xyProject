@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include layout/_head.html %>
+    <title>关注</title>
+    <script>
+        window.CUSTOM_DATA = {
+            page: 'focus',
+            aid: '${data.aid}',
+        }
+    </script>
+</head>
+<body>
+
+    <img src="./images/qrcode.png" alt="qrcode" id='qrcode'>
+
+    <div class="page j_custom" data-style='background-image: url("${data.poster.bimgUrl}")'>
+
+      <div class="model-wrap">
+          <div id="popup">
+              <div class="popup-header">
+                <div class="logo"></div>
+                <div class="qrcode"></div>
+              </div>
+              <div class="popup-content">
+                <p>扫码关注新华社微信公众号，可参与</p>
+                <p>“点赞参与一带一路 获取手机流量”活动</p>
+              </div>
+          </div>
+      </div>
+      
+    </div>
+
+</body>
+</html>

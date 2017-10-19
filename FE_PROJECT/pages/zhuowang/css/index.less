@@ -1,0 +1,416 @@
+[v-cloak] {
+  display: none;
+}
+html{background: #fff;height: 100%}
+.custom-dom{
+  display: block;
+}
+
+body{
+  padding: 0 30px 90px;
+  background-color: #f47301;
+}
+
+// 弹窗
+#popup{
+  position: fixed;
+  z-index: 3;
+  top: 100px;
+  width: 690px;
+  left: 50%;
+  margin-left: -345px;
+  background: #fef7c7;
+  padding: 0 30px 55px 30px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.btn-confirm{
+  display: block;
+  height: 100px;
+  line-height: 100px;
+  background: #fe9000;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 36px;/*px*/
+}
+.btn-close{
+  position: absolute;
+  display: block;
+  right: 20px;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  background: #f7de31;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 100;
+  border-radius: 25px;
+}
+.popup-header{
+  position: relative;
+  height: 88px;
+  line-height: 88px;
+  font-size: 36px;/*px*/
+  color: #180839;
+  text-align: center;
+}
+.popup-content{
+  height: 380px;
+  font-size: 36px;/*px*/
+  .content-img{
+    display: block;
+    height: 325px;
+    background-image: url("../images/person.png");
+    background-repeat: no-repeat;
+    background-size: 261px 325px;
+    background-position: center center;
+  }
+  .content-words{
+    //display: block;
+    height: 325px;
+    font-size: 36px;/*px*/
+    line-height: 1.5;
+    padding: 0 30px;
+    color: #180839;
+    word-break: break-all;
+    overflow: hidden;
+    justify-content: center;
+  }
+}
+
+
+
+.banner{
+  margin: 0 -30px;
+  position: relative;
+  height: 664px;
+  background-color: #230c52;
+  background-image: url("../images/banner.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  .banner-title{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 0 30px;
+    width: 100%;
+    left: 0;
+    color: #fcde5c;
+    font-size: 30px;/*px*/
+  }
+  .my-prize{
+    position: absolute;
+    left: 265px;
+    bottom: 15px;
+    font-size: 30px;/*px*/
+    color: #6a2a0d;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    width: 220px;
+    background-image: linear-gradient(to bottom,#fecc06,#febb05,#fda903);
+    border-radius: 10px;
+    border-bottom: 4px solid #ca8500;
+  }
+}
+
+//.wave{
+//    margin: 0 -30px;
+//    height: 65px;
+//    background-color: #230c52;
+//    background-size: 100% 65px;
+//    background-repeat: no-repeat;
+//}
+.slogan{
+  margin: 0 -0.4rem;
+  height: 128px;
+  line-height: 178px;
+  font-size: 30px;/*px*/
+  background-image: url("../images/wave.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #230c52;
+  color: #fffefe;
+  text-align: center;
+}
+
+
+.news-wrap{
+  border-bottom: 10px solid #c13004;
+  border-radius: 25px;
+  margin-bottom: 100px;
+}
+.news{
+  position: relative;
+  padding: 25px;
+  height: 320px;
+  background: #feed6b;
+  border: 16px solid #f44001;
+  border-radius: 20px;
+  font-size: 32px;/*px*/
+  color: #772323;
+  h2{
+    text-align: center;
+    height: 50px;
+  }
+  i{
+    z-index: 1;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #feed6b;
+    border: 14px solid #f44001;
+    border-radius: 25px;
+    &[state='0']{left:-12px;top:-12px;}
+    &[state='1']{left:-12px;bottom:-12px;}
+    &[state='2']{right:-12px;top:-12px;}
+    &[state='3']{right:-12px;bottom:-12px;}
+  }
+  li{
+    display: block;
+    width: 520px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 auto;
+    span{float: left;width: 250px}
+    em{float: left}
+  }
+}
+.news-inner-wrap{
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+.news-inner{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transition: top 1s;
+  &.reset{
+    transition: none;
+    top: 0;
+  }
+}
+
+// 刮奖区域
+.pad-inner{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  &>div{
+    position: absolute;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .pad-loading{
+    background: #fffefe;
+    color: #b0afaf;
+    font-size: 36px;/*px*/;
+    line-height: 260px;
+  }
+  .pad-done{
+    background: #fc4202;
+    background-image: url("../images/get_prize.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    .title{
+      padding-top: 25px;
+      font-size: 30px;/*px*/
+    }
+    em{
+      color: #fecc06;
+      font-size: 48px;/*px*/
+    }
+  }
+  .pad-fail{
+    background: #fff;
+    color: #6a6769;
+    background-image: url("../images/no_prize.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    .title{
+      padding-top: 25px;
+      font-size: 30px;/*px*/
+    }
+    .footer{
+      background: #f47301;
+      &:before {display: none;}
+    }
+  }
+  .footer{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    bottom: 0;
+    left: 0;
+    font-size: 30px;/*px*/
+    color: #fdfcfb;
+    background: #c7572f;
+    text-align: center;
+    &:before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 10px;
+      left: 0;
+      top: -10px;
+      background: rgba(0,0,0,0.2);
+    }
+    a{text-decoration: underline;}
+  }
+}
+.pad-area{
+  .init{
+    height: 250px;
+    text-align: center;
+    padding-top: 35px;
+    position: relative;
+    .new-customer{
+      display: block;
+      position: absolute;
+      width:193px;
+      height: 213px;
+      top:5px;
+      background-image: url("../images/new_customer.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+    a{
+      display: block;
+      position: absolute;
+      left: 180px;
+      width: 330px;
+      height: 106px;
+      line-height: 90px;
+      text-align: center;
+      font-size: 53px;/*px*/
+      color: #180839;
+      background-image: url("../images/btn_join.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    p{
+      font-size: 30px;/*px*/
+      color: #772323;
+    }
+    strong{
+      font-size: 48px;/*px*/
+    }
+  }
+}
+
+.pad{
+  margin: 30px auto;
+}
+.pad-head{
+  margin: auto;
+  height: 144px;
+  line-height: 144px;
+  width: 452px;
+  font-size: 30px;/*px*/
+  color: #6a2a0d;
+  text-align: center;
+  /*background-color: #faedd9;*/
+  background-image:url('../images/chance.png');
+  background-size:cover;
+  background-repeat:no-repeat;
+  em{
+    font-size: 48px;/*px*/
+  }
+}
+
+.pad-body{
+  padding: 30px 40px;
+  height: 320px;
+  background: #fec005;
+  border-radius: 10px;
+  box-shadow: 1px 2px 0 3px #ab6a1d;
+  .pad-inner-wrap{
+    border-radius: 10px;
+    overflow: hidden;
+  }
+}
+.pad-inner{
+  position: relative;
+  height: 260px;
+  border-radius: 10px;
+  border: 1px solid #ed8600;
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+.rules{
+  position: relative;
+  padding: 40px;
+  background: #feed6b;
+  border-radius: 20px;
+  border: 2px solid #c43500;
+  .rules-title{
+    position: absolute;
+    width: 407px;
+    height: 102px;
+    top: -64px;
+    left: 50%;
+    margin-left: -203.5px;
+    color: #fff;
+    font-size: 36px;/*px*/
+    line-height: 65px;
+    text-align: center;
+    background-image: url("../images/rule_title.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .rules-content{
+    height: 350px;
+    padding-top:30px;
+    overflow: hidden;
+  }
+  .rules-content.open{
+    height: auto;
+  }
+  .rules-more{
+    display: block;
+    text-align: center;
+    font-size: 28px;/*px*/
+    color: #f4362a;
+    line-height: 1.6;
+  }
+  p{
+    font-size: 32px;/*px*/
+    color: #772323;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    word-break: break-all;
+  }
+}
+
+/* ============================================================
+   flex：定义布局为盒模型
+   flex-v：盒模型垂直布局
+   flex-1：子元素占据剩余的空间
+   flex-align-center：子元素垂直居中
+   flex-pack-center：子元素水平居中
+   flex-pack-justify：子元素两端对齐
+   兼容性：ios 4+、android 2.3+、winphone8+
+   ============================================================ */
+.flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}
+.flex-v{-webkit-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}
+.flex-1{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;}
+.flex-align-center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
+.flex-pack-center{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+.flex-pack-justify{-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}
