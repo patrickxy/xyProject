@@ -1,6 +1,6 @@
 const path = require('path');
 const glob = require('glob');
-const DIR_NAME = 'feeService';
+const DIR_NAME = 'developBook';
 let getEntries = function(pattern) {
     let entries = {};
     glob.sync(`./pages/${DIR_NAME}/${pattern}`).forEach(item => {
@@ -12,7 +12,7 @@ let getEntries = function(pattern) {
 module.exports = {
     dirname: DIR_NAME,
     designWidth: 750,
-    useRem: true,
+    useRem: false,
     entry: getEntries('js/*.js'),
     template: getEntries('*.html'),
     resolve: {
