@@ -7,5 +7,24 @@ if (NODE_ENV === 'prod') {} else {
     devTool();
 }
 $(function() {
+    // 摇一摇功能
+    // 访问传感器的API 
+    // 方向事件 deviceorientation
+    window.addEventListener('deviceorientation', orientationHandle, true);
 
+    function orientationHandle(evt) {
+        //console.log(evt);/
+    }
+    // 移动事件 devicemotion 
+    if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', motionHandle, false);
+    }
+
+
+    function motionHandle(event) {
+        var acceleration = event.accelerationIncludingGravity;
+        console.log(acceleration.x);
+        console.log(acceleration.y);
+        console.log(acceleration.z);
+    }
 });
