@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css各种测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h2 {
+            color: #fff;
+        }
+        
+        body {
+            background: url('http://csssecrets.io/images/stone-art.jpg');
+        }
+        
+        .base-font {
+            max-width: 20em;
+            padding: 2em;
+            margin: 2em auto 0;
+            font: 100%/1.5 sans-serif;
+        }
+        
+        .transparent-border {
+            border: 10px solid rgba(255, 255, 255, .5);
+            background: white;
+            background-clip: padding-box;
+            /* styling */
+        }
+        
+        .multi-border {
+            background: yellowgreen;
+            box-shadow: 0 0 0 10px #655, 0 0 0 15px deeppink, 0 2px 5px 15px rgba(0, 0, 0, .6);
+        }
+        
+        .multi-border1 {
+            background: yellowgreen;
+            border: 10px solid #655;
+            outline: 2px dashed deeppink;
+            outline-offset: -5px;
+            /*设置为负数可以实现缝边效果*/
+        }
+    </style>
+</head>
+
+<body>
+    <h2>1.透明border</h2>
+    <div class="transparent-border base-font">
+        拉打广发活动罚款还房贷爱上了话费开始 background-clip 默认为border-box 这样背景会把border也覆盖掉 设置为 padding-box则不会
+        <!-- background-clip: padding-box; -->
+    </div>
+    <h2>2.多重边框边框</h2>
+    <div class="multi-border base-font">1).boxshadow 缺点不能设置虚线，通过boxshadow设置的边框不会占据大小，可能需要考虑计算位置 优点可以设置多个边框</div>
+    <div class="multi-border1 base-font">2).outline 只适用于2层边框的时候</div>
+</body>
+
+</html>
