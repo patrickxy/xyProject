@@ -29,8 +29,13 @@
                 var randomTime = Math.floor(Math.random() * 10000);
                 setTimeout(() => {
                     var message = getMessage();
-                }, randomTime);
+                    if (message != null) {
+                        window.parent.postMessage(message, 'http://localhost');
+                    }
+                    postMsgLoop();
+                }, 1000);
             }
+            postMsgLoop();
         }());
     </script>
 </body>

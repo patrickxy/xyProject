@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>history API与单页应用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .green {
+            color: green;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        .blue {
+            color: blue;
+        }
+        
+        .show {
+            display: block;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="green" data-color="green">green</li>
+        <li class="red" data-color="red">red</li>
+        <li class="blue" data-color="blue">blue</li>
+    </ul>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        // 获取url参数
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        $('ul li').on('click', function() {
+            if (!$(this).hasClass('show')) {
+                let color = $(this).data('color');
+                // 实际应用中这里用ajax根据不同color获取不同数据
+                history.pushState({}, "页面标题", "historyapi.html?color=" + color);
+                initPage();
+            }
+        });
+
+        function initPage() {
+            let color = '';
+            if (getUrlParam('color')) {
+                color = getUrlParam('color');
+            } else {
+                history.replaceState(null, "页面标题", "historyapi.html?color=green");
+                color = 'green';
+            }
+            $('ul li').removeClass('show')
+            $('.' + color).addClass('show');
+        }
+        initPage();
+        window.addEventListener('popstate', function(e) {
+                // 在url变化时（前进后退）显示对应内容
+                initPage();
+            })
+            // 这里的color 我是在initPage函数中 再获取的 也可在外面取好通过参数传入
+    </script>
+</body>
+
+</html>
