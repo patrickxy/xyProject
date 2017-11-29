@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js关键语法及使用技巧</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        test1
+        <div id="div2">test2</div>
+    </div>
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+    <h2>移动端事件</h2>
+    <ul>
+        <li>触摸事件 touchstart touchmove touchend touchcancel</li>
+        <li>手势事件 gesturestart gesturechange gestureend</li>
+        <li>传感器事件 deviceorientation设备的物理方向信息 devicemotion设备的加速信息 orientationchange设备的旋转方向信息</li>
+    </ul>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/eruda/1.2.4/eruda.min.js"></script>
+    <script>
+        eruda.init();
+        // try catch
+        function getLength(str) {
+            try {
+                return str.length;
+            } catch (error) {
+                console.log(error);
+                console.log('str不是有效的字符串');
+                return 0;
+            }
+        }
+        getLength(null);
+        // 匿名函数立即执行
+        var result = (function(m, n) {
+            return m + n
+        })(1, 2);
+
+        // 事件委托
+        document.querySelector('#div1').addEventListener('click', function(ev) {
+            console.log(1);
+        }, false);
+        document.querySelector('#div2').addEventListener('click', function(ev) {
+            console.log(2);
+        }, false);
+        // 输出2,1 冒泡由子到父
+        // 如果都改为true 输出 1,2
+        // click 事件类型 function useCapture true/false事件是否发生在捕获阶段 false表示发生冒泡阶段
+        //捕获 由顶层到底层 冒泡 由底层到顶层
+
+        document.getElementById("div2").removeEventListener("mousemove", myFunction);
+        // 如果要移除事件句柄，addEventListener() 的执行函数必须使用外部函数，如上实例所示 (myFunction)。
+        //匿名函数， 类似 "document.removeEventListener("
+        //event ", function(){ myScript });"
+        //该事件是无法移除的。
+        function myFunction() {
+
+        }
+        // 事件委托 addEventListener对未来加入的元素无效 所以需委托在祖先元素或者根节点上
+        $("ul").on("mouseover", function(e) {
+            $(e.target).css("background-color", "#ddd").siblings().css("background-color", "white");
+        })
+
+
+        var touch0 = null;
+        document.body.addEventListener('touchstart', function(ev) {
+            touch0 = ev.touches[0];
+            console.log('touchstart');
+        })
+        document.body.addEventListener('touchmove', function(ev) {
+            var touch = ev.touches[0];
+            var moveX = touch.clientX - touch0.clientX;
+            var moveY = touch.clientY - touch0.clientY;
+            console.log('move', moveX, moveY);
+        });
+
+
+        window.addEventListener('orientationchange', function(ev) {
+            console.log(window.screen.orientation.angle + 'angle'); //chrome测试0竖屏-90横屏 手机测试一样   0和180表示竖屏 90和270表示横屏
+            console.log(window.orientation + 'angle1'); //chrome测试undefined 手机测试0-90
+        })
+    </script>
+</body>
+
+</html>

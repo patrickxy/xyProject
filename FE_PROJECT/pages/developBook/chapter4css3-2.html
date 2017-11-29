@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex 媒体查询 rem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        @media screen and (min-width:640px) {
+            .wrapper {
+                width: 640px;
+                margin: 0 auto;
+            }
+        }
+        
+        #col1 {
+            column-count: 3;
+        }
+        
+        #col2 {
+            column-width: 180px;
+            column-gap: 30px;
+            column-rule: solid 10px red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <p>calc 计算属性 vw 1vw-》当前页面宽度的1/100 vh 当前页面高低的1/100</p>
+        <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">flex参见阮一峰文档</a>
+        <p>flex最新浏览器已全部支持（uc需加-webkit待验证）</p>
+        <h2>media query</h2>
+        <p style="color:#ff0000">todo：使用media query制作一个响应式的pc网站</p>
+        <h2>rem</h2>
+        <a href="https://github.com/amfe/lib-flexible">rem文档参见</a>
+        <a href="https://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html">文章</a>
+        <a href="https://github.com/amfe/lib-flexible/blob/master/src/flexible.js">js地址</a>
+        <h2>文字的多列布局</h2>
+        <p id="col1">
+            开始减肥高师傅按时开放哈是否合法是返回发哈看是否会啊是防寒服发哈是放假了顺丰卡惊世毒妃开始减肥高师傅按时开放哈是否合法是返回发哈看是否会啊是防寒服发哈是放假了顺丰卡惊世毒妃
+        </p>
+        <p id="col2">
+            开始减肥高师傅按时开放哈是否合法是返回发哈看是否会啊是防寒服发哈是放假了顺丰卡惊世毒妃开始减肥高师傅按时开放哈是否合法是返回发哈看是否会啊是防寒服发哈是放假了顺丰卡惊世毒妃
+        </p>
+        <h2>动画 背景 阴影等参加css揭秘的文档cssSecret</h2>
+        <h2>less基本使用方法不再赘述</h2>
+    </div>
+</body>
+
+</html>

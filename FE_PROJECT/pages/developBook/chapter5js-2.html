@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js关键语法及使用技巧 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>作用域 闭包</h2>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/eruda/1.2.4/eruda.min.js"></script>
+    <script>
+        eruda.init();
+
+        // 以前没有块级作用域(只有函数作用域和全局作用域)  es6使用let后有
+        for (var scope = 0; scope < 5; scope++) {
+            console.log(scope); //01234
+        }
+        console.log(scope); //5
+
+        if (!('a' in window)) {
+            var a = 1;
+        }
+        console.log(a); //期望值为1 实际却为undefined  因为没有块级作用域 a的声明被提前至全局作用域 因此a一直在window下 所以不会执行赋值语句
+        // 对应的
+        if ('b' in window) {
+            var b = 1;
+        }
+        console.log(b); //期望值为undefined 实际却为1
+
+        var c = [];
+        for (var i = 0; i < 10; i++) {
+            c[i] = function() {
+                console.log(i);
+            };
+        }
+        c[6](); // 10 所有数组c的成员里面的i，指向的都是同一个i，导致运行时输出的是最后一轮的i的值，也就是 10
+
+
+        // 闭包
+        function outer() {
+            var scope = 10;
+            return function inner() {
+                scope += 10;
+                console.log(scope);
+            }
+        }
+        var scope = 100;
+        var fn = outer();
+        fn(); //输出20 而不是110 inner函数在定义时引用的外部函数outer 的局部变量scope .
+        // inner函数作为outer函数的返回，当outer函数执行完后，其内部scope变量并未回收，可以通过fn的执行被获取，这里的inner形成了闭包
+        fn(); //30 内部的scope一直在内存中 并未被释放
+        console.log(scope); //100
+
+
+        var scope1 = 10;
+
+        function calculate(addend) {
+            console.log(scope1 + addend); //15
+        }
+        (function(ca) {
+            var scope1 = 100;
+            ca(5);
+        })(calculate)
+        // 将calculate函数作为参数传递给自执行函数 出现了闭包
+
+        // 闭包的应用 1.匿名自执行函数-》 这段代码中函数addEvent和removeEvent都是局部变量，
+        // 但我们可以通过全局变量oEvent使用它，这就大大减少了全局变量的使用
+        var datamodel = {
+            table: [],
+            tree: {}
+        };
+
+        (function(dm) {
+            for (var i = 0; i < dm.table.rows; i++) {
+                var row = dm.table.rows[i];
+                for (var j = 0; j < row.cells; i++) {
+                    drawCell(i, j);
+                }
+            }
+
+            //build dm.tree      
+        })(datamodel);
+        // 2.缓存 =》利用闭包导致内存不会释放的情况
+
+        var count = 0;
+        fib = (function() {
+            var arr = [0, 1, 1]; //前3位
+            return function(n) {
+                count++;
+                console.log(count + 'count'); //1-17  10->9+8
+                var res = arr[n]; //arr一直在内存中
+                if (res) {
+                    return res;
+                } else {
+                    arr[n] = fib(n - 1) + fib(n - 2);
+                    return arr[n]
+                }
+            }
+        })();
+        console.log(fib(10)); //55
+
+        // 3实现内部变量封装 内部变量外部不能访问 仅能通过暴露的方法访问
+        var person = function() {
+            //变量作用域为函数内部，外部无法访问    
+            var name = "default";
+
+            return {
+                getName: function() {
+                    return name;
+                },
+                setName: function(newName) {
+                    name = newName;
+                }
+            }
+        }();
+
+        console.log(person.name); //直接访问，结果为undefined    
+        console.log(person.getName()); //default
+        person.setName("abruzzi");
+        console.log(person.getName()); //abruzzi
+
+        // 4重要用途是实现面向对象中的对象，传统的对象语言都提供类的模板机制
+        function Person() {
+            var name = "default";
+
+            return {
+                getName: function() {
+                    return name;
+                },
+                setName: function(newName) {
+                    name = newName;
+                }
+            }
+        };
+
+
+        var john = Person();
+        console.log(john.getName()); //default
+        john.setName("john");
+        console.log(john.getName()); //John
+
+        var jack = Person();
+        console.log(jack.getName()); //default
+        jack.setName("jack");
+        console.log(jack.getName()); //jack   john 与 jack两个对象互不影响
+    </script>
+</body>
+
+</html>
