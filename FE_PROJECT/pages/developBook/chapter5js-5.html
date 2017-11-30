@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js关键语法及使用技巧 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>promise</li>
+        <li>async await</li>
+        <li>fetch</li>
+    </ul>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/eruda/1.2.4/eruda.min.js"></script>
+    <script>
+        eruda.init();
+        // promise 用法用途1
+        let getImage = (url) => {
+            return new Promise((resolve, reject) => {
+                const image = new Image();
+                image.onload = () => {
+                    resolve(image);
+                };
+                image.onerror = () => {
+                    reject(new Error('canot load image'));
+                }
+                image.src = url;
+            })
+        }
+        getImage('http://img.kzcn.cc/600x400/c/0').then((image) => {
+            console.log(image.src);
+            console.log(image.width);
+            console.log(image.height);
+            // 我擦 百度的图片还有调用限制 
+        }).catch((error) => {
+            console.log(error);
+        })
+
+        // promise用法实例2  ajax promise
+        let getData = (url) => {
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        type: 'get',
+                        dataType: 'json',
+                        url: url,
+                        success(res) {
+                            resolve(res);
+                        },
+                        error(error) {
+                            reject(new Error(error));
+                        }
+                    })
+                })
+            }
+            // getData('https://yesno.wtf/api').then(res => {
+            // console.log(res);
+            // }).catch(error => {
+            //     console.log(error)
+            // })
+
+        //promise.all(多个pormise均返回 才resolve) promise.race(多个promise只要有一个返回 就resolve)用法
+        const promise2 = [1, 2].map((item, index) => {
+            return getData('https://yesno.wtf/api')
+        })
+
+        Promise.all(promise2).then(res => {
+            // console.log(res);
+            // [{},{}] 返回两个结果合并的数组
+        }).catch(err => {
+            console.log(err);
+        });
+
+        const promise3 = [1, 2, 3].map((item, index) => {
+            return getData('https://yesno.wtf/api')
+        })
+        Promise.race(promise3).then(res => {
+                // console.log(res);
+                //{answer: "yes", forced: false, image: "https://yesno.wtf/assets/yes/10-271c872c91cd72c1e38e72d2f8eda676.gif"}
+            }).catch(err => {
+                console.log(err);
+            })
+            // async await fetch
+        async function logger() {
+            let data = await fetch('https://yesno.wtf/api');
+            // let data = await $.get('https://yesno.wtf/api');
+            console.log(data);
+        }
+
+        logger();
+
+        fetch('https://api.github.com/users/github', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json, text/javascript, */*; q=0.01',
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                },
+                mode: 'cors',
+                credentials: 'credentials',
+                cache: 'default',
+                body: {}
+            })
+            .then((resp) => {
+                try {
+                    return resp.json();
+                } catch (err) {}
+                return resp.text();
+            })
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+        // cors是表明可否通过header跨域。
+        // credentials表明是否在跨域的时候可以传数据，比如cookie等信息。
+        // credentials为真的时候，服务段不能用*来匹配，必须要指定一个完整的域信息
+    </script>
+</body>
+
+</html>
