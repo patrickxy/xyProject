@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js关键语法及使用技巧 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>es6</li>
+    </ul>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/eruda/1.2.4/eruda.min.js"></script>
+    <script>
+        eruda.init();
+        // 字符串扩展 模板字符串不在描述
+        let s = 'hello';
+        console.log(s.startsWith('he')); //true
+        console.log(s.endsWith('lo')); //true
+        console.log(s.includes('el')); //true
+        console.log(s.repeat(2)); //hellohello
+
+        // 数值的扩展  
+        console.log(Number.isInteger(1)); //判断是否为整数 true
+        console.log(Number.isNaN(1)); //判断是否为nan false
+        //Number.EPSILON //极小常量
+        console.log(Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON); //true
+
+        //函数的扩展
+        // 指定函数默认值
+        function minus(x, y = 3) {
+            return x - y;
+        }
+        console.log(minus(5)); //2
+        // 使用rest获取函数剩余参数，即可处理可变参数的函数
+        function add(...values) {
+            console.log(values); // [1, 2, 3, 4]
+            let r = 0;
+            for (let n of values) {
+                r += n;
+            }
+            return r;
+        }
+        console.log(add(1, 2, 3, 4)); //10
+        // 箭头函数  箭头函数内部的this指向定义时外部环境的this对象
+
+        // 对象的扩展 属性和函数的简写 并且属性名支持表达式
+        let p = 1;
+        let o = {
+            p,
+            ['a' + p]: 2,
+            f() {
+                alert(1);
+            }
+        };
+        console.log(o); //{p: 1, a1: 2, f: ƒ}
+
+        // 结构赋值
+    </script>
+</body>
+
+</html>
