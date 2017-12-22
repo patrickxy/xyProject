@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>边框内圆角</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .test {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            background-color: tan;
+            outline: solid 10px #565656;
+            margin-left: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            box-shadow: 0 0 0 10px #565656;
+            /* border: solid 10px red; */
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        
+        .test1 {
+            background: linear-gradient(#fb3, #58a);
+        }
+    </style>
+</head>
+
+<body>
+    <h4>边框内圆角</h4>
+    <p>要实现如下图片效果</p><img src="../images/1.png">
+    <p>可以用两个div嵌套实现 下面我们使用box-shadow outline hack实现</p>
+    <p>box-shadow贴着border-radious outline 不会 所以这里用outline与box-shadow相互叠加实现这种效果</p>
+    <div class="test">
+        3456789<br> ertyuiop
+    </div>
+    <h4>条纹背景</h4>
+    <p>一般用法 background: linear-gradient(#fb3, #58a);</p>
+    <div class="test1 box"></div>
+    <p>色标拉近到40% 60% 这样只有中间的20%在渐变</p>
+    <div class="test2 box" style="background: linear-gradient(#fb3 40%, #58a 60%);"></div>
+    <p>色标设置为到50% 50% </p>
+    <div class="test2 box" style="background: linear-gradient(#fb3 50%, #58a 50%);"></div>
+    <p>利用这一原理来设置条纹背景 background-size的高度设置为30px 相当于每30px都由两个颜色平分</p>
+    <div class="test2 box" style="background: linear-gradient(#fb3 50%, #58a 50%);background-size:100% 30px;"></div>
+    <p>设置不等宽条纹 其实#58a的宽度达到了70% 下面两个等价</p>
+    <div class="test2 box" style="background: linear-gradient(#fb3 30%, #58a 30%);background-size:100% 30px;"></div>
+    <div class="test2 box" style="background: linear-gradient(#fb3 30%, #58a 0);background-size:100% 30px;"></div>
+    <p>如果要设置三个及以上条纹</p>
+    <div class="test2 box" style="background: linear-gradient(#fb3 33.3%, #58a 0,#58a 66.6%,yellowgreen 0);background-size:100% 45px;"></div>
+    <p>竖向条纹 增加to right,(或者90deg,) background-size 将横向设置为100%</p>
+    <div class="test2 box" style="background: linear-gradient(to right, #fb3 33.3%, #58a 0,#58a 66.6%,yellowgreen 0);background-size:45px 100%;"></div>
+    <p>45度倾斜条纹</p>
+    <div class="test2 box" style="background: linear-gradient(45deg,
+    #fb3 25%, #58a 0, #58a 50%,
+    #fb3 0, #fb3 75%, #58a 0);
+    background-size: 42.426406871px 42.426406871px;"></div>
+    <p>还有许多，不在叙述</p>
+</body>
+
+</html>
